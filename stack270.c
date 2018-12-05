@@ -24,7 +24,7 @@ int push(struct stack270 *stk, int value) {
         return -1;
     } else {
         stk->contents[++stk->topIndex] = value;
-        printf("Your value: %d, has been pushed onto the stack\n", value);
+        printf("Your value: %d, has been pushed onto the stack\n\n", value);
         return 0;
     }
 }
@@ -32,44 +32,40 @@ int push(struct stack270 *stk, int value) {
 int pop(struct stack270 *stk) {
     int item;
     if (stk->topIndex == -1) {
-        printf("Stack is empty\n");
+        printf("Stack is empty\n\n");
         return -1;
     } else {
         item = stk->contents[stk->topIndex--];
-        printf("%d has been popped\n", item);
+        printf("%d has been popped\n\n", item);
         return 0;
     }
 }
 
-/*
 int peek(struct stack270 *stk, int *value) {
     int topItem;
     if (stk->topIndex == -1) {
-        printf("Stack is empty\n");
-        return 0;
+        printf("Stack is empty\n\n");
+        return -1;
     } else {
-        stk->contents[stk->topIndex] = topItem;
+        *value = stk->contents[stk->topIndex];
+        topItem = *value;
+        printf("The item on the top of the stack is: %d\n\n", topItem);
+        return 0;
     }
 } 
-*/
 
 int dup(struct stack270 *stk) {
     int dupItem;
     if (stk->topIndex == -1) {
-        printf("Stack is empty\n");
+        printf("Stack is empty\n\n");
         return -1;
     } else {
         dupItem = stk->contents[stk->topIndex];
         stk->contents[++stk->topIndex] = dupItem;
-        printf("Your duplicate item: %d has been pushed onto the stack\n", dupItem);
+        printf("Your duplicate item: %d has been pushed onto the stack\n\n", dupItem);
         return 0;
     }
 }
-
-/* Stuff coming in Part 2 */
-
-// add()
-// freeStack(struct stack270) - resets to unitialized condition (top = -1, max = 0, free contents) 
 
 
 
